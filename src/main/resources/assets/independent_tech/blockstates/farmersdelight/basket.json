@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "independent_tech:block/farmersdelight/basket",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "independent_tech:block/farmersdelight/basket",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "independent_tech:block/farmersdelight/basket",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "independent_tech:block/farmersdelight/basket",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "independent_tech:block/farmersdelight/basket"
+    },
+    "facing=west": {
+      "model": "independent_tech:block/farmersdelight/basket",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
