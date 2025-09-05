@@ -1,6 +1,7 @@
 package dev.mangojellypudding.independenttech;
 
 import com.mojang.logging.LogUtils;
+import dev.mangojellypudding.independenttech.cookingforblockheads.block.entity.SinkBlockEntity;
 import dev.mangojellypudding.independenttech.register.ITBlockEntityTypes;
 import dev.mangojellypudding.independenttech.register.ITBlocks;
 import dev.mangojellypudding.independenttech.register.ITCreativeModeTabs;
@@ -20,5 +21,7 @@ public class IndependentTech {
         ITItems.ITEMS.register(modEventBus);
         ITCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ITBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
+
+        modEventBus.addListener(SinkBlockEntity::registerCapability); // 注册方块实体能力
     }
 }

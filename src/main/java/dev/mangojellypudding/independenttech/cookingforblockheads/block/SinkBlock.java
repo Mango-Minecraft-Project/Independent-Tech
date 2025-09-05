@@ -84,7 +84,7 @@ public class SinkBlock extends BaseEntityBlock {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
 
-        FluidActionResult result = FluidUtil.tryFillContainerAndStow(itemStack, sink.sinkTank, new InvWrapper(player.getInventory()), Integer.MAX_VALUE, player, true);
+        FluidActionResult result = FluidUtil.tryFillContainerAndStow(itemStack, SinkBlockEntity.fluidHandler, new InvWrapper(player.getInventory()), Integer.MAX_VALUE, player, true);
 
 //        if (result.success) {
 //
