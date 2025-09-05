@@ -2,5 +2,7 @@
   "itemGroup.independent_tech.tab": "Independent Tech",
 
   "block.independent_tech.farmersdelight.basket": "Basket (Farmer's Delight)",
-  "container.independent_tech.farmersdelight.basket": "Basket (Farmer's Delight)"
+  "container.independent_tech.farmersdelight.basket": "Basket (Farmer's Delight)",
+
+  "block.independent_tech.cookingforblockheads.sink": "Sink (Cooking for Blockheads)"
 }
