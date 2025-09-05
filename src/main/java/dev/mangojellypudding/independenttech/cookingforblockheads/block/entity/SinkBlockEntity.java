@@ -16,9 +16,18 @@ import org.jetbrains.annotations.NotNull;
 public class SinkBlockEntity extends BlockEntity {
     private static final int SYNC_INTERVAL = 10;
 
-    // 这里水槽不包含实际内部状态，所以提供一个静态字段即可，且不需要任何setChange或序列化保存
+    // 这里水槽不包含实际内部状态，所以提供一个静态字段即可，不需要setChange和序列化保存
     public static final IFluidHandler fluidHandler = new IFluidHandler()
     {
+        private static FluidStack WATER_STACK = new FluidStack(Fluids.WATER, Integer.MAX_VALUE);
+
+        // 防止有时被外界修改
+        private void verifyStack()
+        {
+            if(WATER_STACK.getFluid() != Fluids.WATER || WATER_STACK.getAmount() != Integer.MAX_VALUE)
+                WATER_STACK = new FluidStack(Fluids.WATER, Integer.MAX_VALUE);
+        }
+
         @Override
         public int getTanks()
         {
@@ -28,7 +37,9 @@ public class SinkBlockEntity extends BlockEntity {
         @Override
         public @NotNull FluidStack getFluidInTank(int tank)
         {
-            return new FluidStack(Fluids.WATER, Integer.MAX_VALUE);
+            // 每次get都返回新实例有点耗性能，所以用个静态量
+            verifyStack();
+            return WATER_STACK;
         }
 
         @Override
@@ -50,7 +61,7 @@ public class SinkBlockEntity extends BlockEntity {
         public int fill(FluidStack fluidStack, @NotNull FluidAction fluidAction)
         {
             return fluidStack.getAmount(); // 如果想把它当流体垃圾桶
-            //return 0; 不接受任何流体
+            //return 0; 不接受任何流体输入
         }
 
         // 返回实际排出量
@@ -81,7 +92,7 @@ public class SinkBlockEntity extends BlockEntity {
     }
 
     // 如果需要主动输出能力，则在tick中自己使用level.getCapability获取对面的流体能力
-    // 然后自行操作对方的流体容器
+    // 然后自行操作对方的流体容器，记得最好不要直接修改getFluidInTank拿到的实例，应该用fill和drain
 
     private int ticksSinceSync;
 
