@@ -7,15 +7,15 @@
 
 - ![](./docs/basket.png) Basket
 
-## [Cooking For Blockheads] (WIP)
+## [Cooking For Blockheads](https://github.com/TwelveIterationMods/CookingForBlockheads/) (WIP)
 
 - ![](./docs/sink.png) Sink
 
-## [Supplementaries](#) (TODO)
+## [Supplementaries](https://github.com/MehVahdJukaar/Supplementaries) (TODO)
 
 - ![](./docs/faucet.png) Faucet
 - ![](./docs/cog_block.png) Cog Block
 
-## [Create](#) (TODO)
+## [Create](https://github.com/Creators-of-Create/Create) (TODO)
 
 - ![](./docs/powered_toggle_latch.png) Powered Toggle Latch
